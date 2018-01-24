@@ -36,11 +36,12 @@ const OuterMainWrapper = styled.div`
 const MainWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 800px;
     width: 90%;
+    padding-bottom: 150px;
     position: relative;
 
-    > h2 {
+    > h1 {
         text-align: right;
         font-family: RobotoMono, sans-serif;
         font-weight: 500;
@@ -52,11 +53,36 @@ const MainWrapper = styled.div`
         font-weight: 400;
         padding-top: 10px;
         color: black;
+        font-size: 20px;
     }
 
-    @media (max-width: 500px) {
-        > h2, > p {
+    @media (max-width: 900px) {
+        > h1 {
+            font-size: 24px;
+        }
+    }
+
+    @media (max-width: 700px) {
+        > h1 {
+            font-size: 22px;
+        }
+    }
+
+    @media (max-width: 600px) {
+        > p {
+            font-size: 16px
+        }
+        > h1 {
+            font-size: 18px
+        }
+    }
+
+    @media (max-width: 450px) {
+        > p {
             font-size: 14px
+        }
+        > h1 {
+            font-size: 16px
         }
     }
 
@@ -75,7 +101,13 @@ const Footer = styled.div`
         padding: 10px;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
+        > p {
+            font-size: 16px
+        }
+    }
+
+    @media (max-width: 450px) {
         > p {
             font-size: 14px
         }
@@ -98,7 +130,7 @@ const IndexPage = props => (
                     sizes={props.data.logo.sizes}
                     fadeIn={false}
                 />
-                <h2>Equipment, Services & Consultancy</h2>
+                <h1>Equipment, Services & Consultancy</h1>
                 <p>Sign up to be the first to know when we launch!</p>
                 <div id="mc_embed_signup">
                     <form action="https://nutcrackergroup.us17.list-manage.com/subscribe/post?u=806d90cbc2e7f6071eb0bb2f4&amp;id=f07adf07b2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate" target="_blank" noValidate>
@@ -130,7 +162,7 @@ const IndexPage = props => (
 export const pageQuery = graphql`
     query LogoQuery {
         logo: imageSharp(id: { regex: "/Logo/" }) {
-            sizes(maxWidth: 600) {
+            sizes(maxWidth: 800) {
                 ...GatsbyImageSharpSizes_withWebp_noBase64
             }
         }

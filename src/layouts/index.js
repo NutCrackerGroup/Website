@@ -38,7 +38,7 @@ const FormCss = `
         cursor: pointer;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 600px) {
         div.mc-field-group > input, input.button {
             font-size: 14px;
             padding: 6px 10px;
